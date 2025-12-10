@@ -1,6 +1,6 @@
 import { OpenWeatherIconsToLucide } from "@/utility/openWeatherIconsToLucide";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function MainCard({ data }: { data: any }) {
     const ConvertedIcon = OpenWeatherIconsToLucide[data.weather[0].icon]
@@ -21,7 +21,11 @@ export default function MainCard({ data }: { data: any }) {
                 <p>Feels like {Math.round(data.main.feels_like)}°C. {(data.weather[0].description).slice(0, 1).toUpperCase() + data.weather[0].description.slice(1)}</p>
             </CardContent>
             <CardFooter>
-                <CardDescription>Humidity: {data.main.humidity}% | Wind: {data.wind.speed} m/s | Pressure: {data.main.pressure} hPa</CardDescription>
+                {!useIsMobile() && <CardDescription>
+                    <p>Humidity: {data.main.humidity}% </p>
+                    <p>Wind: {data.wind.speed} m/s </p>
+                    <p>Pressure: {data.main.pressure} hPa</p>
+                </CardDescription> }
             </CardFooter>
         </Card>
     )
