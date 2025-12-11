@@ -16,14 +16,14 @@ import {
 
 export default function TemperatureChart({chartData}: {chartData: any[]}) {
     return (
-        <Card className="w-full">
+        <Card className="w-full h-full">
             <ChartContainer
                 config={{
                     value: {
                         label: "Temp",
                     },
                 }}
-                className="h-full text-md"
+                className="text-md p-4 w-full h-full"
             >
                 <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="1 1" opacity={1} stroke="var(--chart-grid)" />

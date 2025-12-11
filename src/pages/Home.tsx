@@ -6,6 +6,8 @@ import { OpenWeatherIconsToLucide } from "@/utility/openWeatherIconsToLucide";
 import SecondaryCard from "@/components/SecondaryCard";
 import TemperatureChart from "@/components/TemperatureChart";
 import { type SearchResult } from "@/components/SearchBar";
+import type { useBookmarksReturn } from "@/hooks/useBookmarks";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const units = "metric"
 const key = import.meta.env.VITE_API_KEY
@@ -14,8 +16,11 @@ export default function Home() {
     const [data, setData] = useState<any>(null)
     const [forecastData, setForecastData] = useState<any>(null)
 
+    const { isBookmarked, updateBookmarkWeather } = useOutletContext<useBookmarksReturn>()
     const { selectedLocation } = useOutletContext<{ selectedLocation: SearchResult | null }>();
     const routerState = useLocation().state as { location?: SearchResult };
+
+    const isMobile = useIsMobile()
 
     const defaultCity = {
         name: "Warsaw",
@@ -33,7 +38,13 @@ export default function Home() {
 
             fetch(redirectedUrl)
                 .then(response => response.json())
-                .then(json => setData(json))
+                .then(json => {
+                    setData(json)
+                    
+                    if(isBookmarked(activeLocation)) {
+                        updateBookmarkWeather(activeLocation, json)
+                    }
+                })
                 .catch(err => console.error(`ERROR: ${err}`))
 
             fetch(redirectedUrlForecast)
@@ -54,11 +65,17 @@ export default function Home() {
     
     return (
         <div className="flex gap-4 p-2">
-            <div className="flex flex-col gap-4 w-2/8">
-                <MainCard data={data} location={activeLocation}/>
-                <SecondaryCard data={data} />
+            <div className={`flex flex-col gap-4 ${isMobile ? "min-w-3/8" : "min-w-2/8"}`}>
+                <div className="h-1/2">
+                    <MainCard data={data} location={activeLocation}/>
+                </div>
+                <div className="h-1/2">
+                    <SecondaryCard data={data} />
+                </div>
             </div>
-            <TemperatureChart chartData={chartData} />
+            <div className="w-full">
+                <TemperatureChart chartData={chartData} />
+            </div>
         </div>
     )
 }

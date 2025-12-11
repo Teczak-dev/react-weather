@@ -16,7 +16,7 @@ export default function Layout() {
             <SidebarProvider>
                 <NavigationSidebar />
                 <div className="w-full p-2">
-                    <div className="flex items-center justify-between h-12">
+                    <div className="flex items-center justify-between p-1">
                         <SidebarTrigger />
                         <SearchBar apiKey={apiKey} onSelectLocation={loc => {
                                 setSelectedLocation(loc)

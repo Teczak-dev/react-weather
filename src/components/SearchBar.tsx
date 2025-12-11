@@ -8,7 +8,7 @@ export interface SearchResult {
     lat: number
     lon: number
     country: string
-    state: string
+    state?: string
 }
 
 interface SearchBarProps {

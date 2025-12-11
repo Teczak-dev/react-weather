@@ -3,7 +3,7 @@ import { Sunrise, Sunset, Sun, Clock } from "lucide-react";
 
 export default function({ data }: { data: any }) {
     return (
-        <Card className="h-1/2">
+        <Card className="h-full">
             <div className="p-4 space-y-4">
                 <div className="flex items-center gap-4">
                     <Sunrise className="w-8 h-8"/>
