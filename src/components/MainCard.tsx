@@ -20,7 +20,8 @@ interface MainCardProps {
 
 export default function MainCard({ data, location, bookmark }: MainCardProps) {
     const isBookmarkMode = !!bookmark
-    
+    const isMobile = useIsMobile()
+
     const ConvertedIcon = OpenWeatherIconsToLucide[isBookmarkMode ? bookmark.weather?.icon : data.weather[0].icon]
 
     const information = {
@@ -56,7 +57,7 @@ export default function MainCard({ data, location, bookmark }: MainCardProps) {
                 </div>
                 <p>Feels like {Math.round(information.feelsLike)}°C. {(information.description).slice(0, 1).toUpperCase() + (information.description).slice(1)}.</p>
             </CardContent>
-            {!useIsMobile() && !isBookmarkMode && <CardFooter>
+            {!isMobile && !isBookmarkMode && <CardFooter>
                 <CardDescription>
                     <p>Humidity: {information.humidity}% </p>
                     <p>Wind: {information.windSpeed} m/s </p>
@@ -67,7 +68,6 @@ export default function MainCard({ data, location, bookmark }: MainCardProps) {
             <div className="absolute right-4 top-4">
                 <BookmarkToggle location={isBookmarkMode ? bookmark : location} />
             </div>
-
         </Card>
     )
 }

@@ -6,6 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { useIsMobile } from "@/hooks/use-mobile"
 import {
   LineChart,
   Line,
@@ -15,6 +16,8 @@ import {
 } from "recharts"
 
 export default function TemperatureChart({chartData}: {chartData: any[]}) {
+    const isMobile = useIsMobile()
+
     return (
         <Card className="w-full h-full">
             <ChartContainer
@@ -23,7 +26,7 @@ export default function TemperatureChart({chartData}: {chartData: any[]}) {
                         label: "Temp",
                     },
                 }}
-                className="text-md p-4 w-full h-full"
+                className={`text-md ${isMobile ? "" : "p-4"} w-full h-full`}
             >
                 <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="1 1" opacity={1} stroke="var(--chart-grid)" />

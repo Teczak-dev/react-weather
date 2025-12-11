@@ -22,7 +22,7 @@ export default function Home() {
 
     const isMobile = useIsMobile()
 
-    const defaultCity = {
+    const defaultCity: SearchResult = {
         name: "Warsaw",
         country: "PL",
         lat: 52.2297,
@@ -56,16 +56,16 @@ export default function Home() {
     }, [selectedLocation, routerState])
 
     const chartData = forecastData ? forecastData.list.slice(0, 8).map((entry: any) => ({
-        time: (entry.dt_txt).slice(8, 16),
+        time: (entry.dt_txt).slice(isMobile ? 10 : 8, 16),
         value: entry.main.temp,
         icon: OpenWeatherIconsToLucide[entry.weather[0].icon],
     })) : []
 
     if(!data) return null
     
-    return (
+    return !isMobile ? (
         <div className="flex gap-4 p-2">
-            <div className={`flex flex-col gap-4 ${isMobile ? "min-w-3/8" : "min-w-2/8"}`}>
+            <div className={`flex flex-col gap-4 min-w-2/8`}>
                 <div className="h-1/2">
                     <MainCard data={data} location={activeLocation}/>
                 </div>
@@ -74,6 +74,20 @@ export default function Home() {
                 </div>
             </div>
             <div className="w-full">
+                <TemperatureChart chartData={chartData} />
+            </div>
+        </div>
+    ) : (
+        <div className="flex flex-col gap-4 p-2">
+            <div className={`flex flex-col gap-4 min-h-1/2`}>
+                <div className="">
+                    <MainCard data={data} location={activeLocation}/>
+                </div>
+                <div className="">
+                    <SecondaryCard data={data} />
+                </div>
+            </div>
+            <div className="">
                 <TemperatureChart chartData={chartData} />
             </div>
         </div>
