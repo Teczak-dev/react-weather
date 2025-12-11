@@ -7,9 +7,10 @@ import { useState } from "react";
 import useBookmarks from "@/hooks/useBookmarks";
 
 export default function Layout() {
-    const apiKey = import.meta.env.VITE_API_KEY
-    const [selectedLocation, setSelectedLocation] = useState<SearchResult | null>(null) 
-    const bookmarkState = useBookmarks()
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const [selectedLocation, setSelectedLocation] =
+        useState<SearchResult | null>(null);
+    const bookmarkState = useBookmarks();
 
     return (
         <div className="flex flex-col">
@@ -18,17 +19,21 @@ export default function Layout() {
                 <div className="w-full p-2">
                     <div className="flex items-center justify-between p-1">
                         <SidebarTrigger />
-                        <SearchBar apiKey={apiKey} onSelectLocation={loc => {
-                                setSelectedLocation(loc)
-                            }
-                        } />
+                        <SearchBar
+                            apiKey={apiKey}
+                            onSelectLocation={(loc) => {
+                                setSelectedLocation(loc);
+                            }}
+                        />
                         <ThemeToggle />
                     </div>
-                    <main className='w-full'>
-                        <Outlet context={{ selectedLocation, ...bookmarkState }}/>
+                    <main className="w-full">
+                        <Outlet
+                            context={{ selectedLocation, ...bookmarkState }}
+                        />
                     </main>
-                    </div>
+                </div>
             </SidebarProvider>
         </div>
-    )
+    );
 }

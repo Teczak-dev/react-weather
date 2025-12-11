@@ -2,17 +2,15 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
-html, body, #root {
+html,
+body,
+#root {
     height: 100%;
 }
 
 .theme-transition * {
-    transition: 
-        background-color 0.3s ease,
-        border-color 0.3s ease,
-        color 0.3s ease,
-        fill 0.3s ease,
-        stroke 0.3s ease
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+        color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 
 @theme inline {
@@ -125,10 +123,10 @@ html, body, #root {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
 }
