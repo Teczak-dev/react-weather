@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 
 import en from "./locales/en.json";
 import pl from "./locales/pl.json";
+import cz from "./locales/cz.json";
 
 export default i18n.use(initReactI18next).init({
     lng: localStorage.getItem("lang") || "en",
@@ -11,5 +12,6 @@ export default i18n.use(initReactI18next).init({
     resources: {
         en: { translation: en },
         pl: { translation: pl },
+        cz: { translation: cz },
     },
 });

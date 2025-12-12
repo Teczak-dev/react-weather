@@ -13,6 +13,7 @@ export default function LanguageSelector() {
     const languages = [
         { code: "en", label: "English" },
         { code: "pl", label: "Polski" },
+        { code: "cz", label: "Čeština" },
     ];
 
     function changeLang(lang: string) {

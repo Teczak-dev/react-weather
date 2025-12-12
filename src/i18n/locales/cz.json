@@ -1,0 +1,28 @@
+{
+    "search_placeholder": "Hledat město...",
+    "humidity": "Vlhkost",
+    "wind": "Vítr",
+    "pressure": "Tlak",
+    "feels_like": "Pocitová teplota",
+    "home": "Domů",
+    "bookmarks": "Záložky",
+    "about": "O aplikaci",
+    "temperature": "Teplota",
+    "site": "Stránka",
+    "language": "Jazyk",
+    "sunrise": "Východ slunce",
+    "sunset": "Západ slunce",
+    "hours_of_daylight": "Hodiny denního světla",
+    "timezone": "Časové pásmo",
+    "empty_bookmarks": "Záložky jsou prázdné",
+    "not_found": "Stránka nenalezena",
+    "not_exist": "Stránka, kterou hledáte, neexistuje.",
+    "back_home": "Zpět na domovskou stránku",
+
+    "about.title": "O této aplikaci",
+    "about.section1": "Tato aplikace o počasí byla vytvořena jako školní projekt pomocí technologií jako <strong>React</strong>, <strong>TypeScript</strong> a <strong>Tailwind</strong>. Poskytuje aktuální informace o počasí, předpovědi a umožňuje ukládat si oblíbené lokality. Elegantní rozhraní bylo vytvořeno pomocí komponent z <strong>shadcn/ui</strong>.",
+    "about.weather": "Počasí",
+    "about.weather.content": "Data o počasí pocházejí z <strong>Openweather API</strong>.",
+    "about.technologies": "Použité technologie",
+    "about.author": "Vytvořil Damian Gorol"
+}
