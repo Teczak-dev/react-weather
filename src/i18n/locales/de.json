@@ -1,0 +1,28 @@
+{
+	"search_placeholder": "Stadt suchen...",
+	"humidity": "Luftfeuchtigkeit",
+	"wind": "Wind",
+	"pressure": "Druck",
+	"feels_like": "Gefühlt wie",
+	"home": "Startseite",
+	"bookmarks": "Lesezeichen",
+	"about": "Über",
+	"temperature": "Temperatur",
+	"site": "Seite",
+	"language": "Sprache",
+	"sunrise": "Sonnenaufgang",
+	"sunset": "Sonnenuntergang",
+	"hours_of_daylight": "Tageslichtstunden",
+	"timezone": "Zeitzone",
+	"empty_bookmarks": "Lesezeichen sind leer",
+	"not_found": "Seite nicht gefunden",
+	"not_exist": "Die von Ihnen gesuchte Seite existiert nicht.",
+	"back_home": "Zurück zur Startseite",
+
+	"about.title": "Über diese App",
+	"about.section1": "Diese Wetter-App wurde als Schulprojekt mit Technologien wie <strong>React</strong>, <strong>TypeScript</strong> und <strong>Tailwind</strong> erstellt. Sie bietet Echtzeit-Wetterinformationen, Vorhersagen und ermöglicht das Speichern von Standorten. Die ansprechende Benutzeroberfläche wurde mit Komponenten von <strong>shadcn/ui</strong> erstellt.",
+	"about.weather": "Wetter",
+	"about.weather.content": "Wetterdaten stammen von der <strong>Openweather API</strong>.",
+	"about.technologies": "Verwendete Technologien",
+	"about.author": "Erstellt von Damian Gorol"
+}
